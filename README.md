@@ -1,6 +1,8 @@
 # [WWG] 그린슈머를 위한 추천서비스 
 
-<img src="README.assets/WWG.gif"  width=300 align=center>   *edit by ominiv*
+<img src="README.assets/WWG.gif"  width=300 align=center>   
+
+*edit by ominiv*
 
 본 프로젝트는 친환경 소비 인식제고를 위해 진행되었습니다.<br>오로지 비영리 목적인 학습용도로 진행된 점 참고 부탁 드립니다 :)
 
@@ -41,7 +43,3 @@
 - 그린슈머를 위한 주변의 음식과 제품을 파는 마켓의 정보를 제공
 - 개인이 선호할 만한 장소 추천 서비스 제공
 - 유저 간의 정보를 공유, 소통이 가능한 공간 제공
-
----
-### 개선이 필요한 사항
-
