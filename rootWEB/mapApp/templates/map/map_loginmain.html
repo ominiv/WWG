@@ -1,0 +1,354 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>WWG Zero-waste & No-Plastic & Vegan Map</title>
+
+<link rel="stylesheet" href="{% static '/resources/theme/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static '/resources/theme/css/font-awesome.min.css' %}">
+
+<!-- Main css -->
+<link rel="stylesheet" href="{% static '/resources/theme/css/style.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
+<link rel="short icon" href="#">
+
+</head>
+<body>
+
+<!-- PRE LOADER -->
+
+<div class="preloader">
+     <div class="sk-spinner sk-spinner-wordpress">
+          <span class="sk-inner-circle"></span>
+     </div>
+</div>
+
+<!-- Navigation section  -->
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+     <div class="container">
+
+          <div class="navbar-header">
+               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+               </button>
+               <a href="../main" class="navbar-brand">
+                    <img src="{% static '/resources/theme/images/WWG_1.png' %}" alt="WWG" width="70" style="max-width:100%;height:auto;image-rendering:-webkit-optimize-contrast;">
+               </a>
+          </div>
+          <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../main">About</a></li>
+
+                    <li class="active"><a href="../map" id="WWG_MAP">Map</a>
+                         <ul>
+                              <li><a href="../map_zerowaste" id="ZEROWASTE_MAP">Zerowaste</a> </li>
+                              <li><a href="../map_vegan" id="VEGAN_MAP">Vegan</a> </li>
+                         </ul>
+                    </li>
+
+                    <li><a href="{% url 'boardApp:list' %}">Board</a></li>
+                    {% if request.session.user %}
+                    <li><a href="../logout">[{{user_id}}]  Logout</a></li>
+                    {% else %}
+                    <li><a href="../login">Login</a></li>
+                    {% endif %}
+               </ul>
+          </div>
+
+  </div>
+</div>
+
+<!-- Home Section -->
+
+<section id="home">
+     <div class="container">
+          <div class="row">
+               <div class="col-md-12 col-sm-12">
+                    <h2><b style="color:green;">{{user_id}}</b><b> 님의 오늘의 PICK </b></h2>
+                    <hr>
+               </div>
+          </div>
+     </div>
+</section>
+
+<!-- Main Section -->
+
+<section id="portfolio">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-4 col-sm-6">
+                    <a href="single-project.html">
+                         <div class="portfolio-thumb">
+                              <img src="{% static '/resources/theme/images/vegan/' %}{{v_recomm_0.name}}.jpg" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-overlay">
+                                        <div class="portfolio-item">
+                                             <h3>{{v_recomm_0.name}}</h3>
+                                             <h5> {{v_recomm_0.category}}</h5>
+                                             <small>WWGSCore : {{v_recomm_0.WWGScore}}</small>
+                                        </div>
+                                   </div>
+                         </div>
+                    </a>
+               </div>
+
+               <div class="col-md-4 col-sm-6">
+                    <a href="single-project.html">
+                         <div class="portfolio-thumb">
+                              <img src="{% static '/resources/theme/images/vegan/' %}{{v_recomm_1.name}}.jpg" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-overlay">
+                                        <div class="portfolio-item">
+                                             <h3>{{v_recomm_1.name}}</h3>
+                                             <h5> {{v_recomm_1.category}}</h5>
+                                             <small>WWGSCore : {{v_recomm_1.WWGScore}}</small>
+                                        </div>
+                                   </div>
+                         </div>
+                    </a>
+               </div>
+
+               <div class="col-md-4 col-sm-6">
+                    <a href="single-project.html">
+                         <div class="portfolio-thumb">
+                              <img src="{% static '/resources/theme/images/vegan/' %}{{v_recomm_2.name}}.jpg" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-overlay">
+                                        <div class="portfolio-item">
+                                             <h3>{{v_recomm_2.name}}</h3>
+                                             <h5> {{v_recomm_2.category}}</h5>
+                                             <small>WWGSCore : {{v_recomm_2.WWGScore}}</small>
+                                        </div>
+                                   </div>
+                         </div>
+                    </a>
+               </div>
+
+               <div class="col-md-4 col-sm-6">
+                    <a href="single-project.html">
+                         <div class="portfolio-thumb">
+                              <img src="{% static '/resources/theme/images/zerowaste/' %}{{z_recomm_0.name}}.jpg" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-overlay">
+                                        <div class="portfolio-item">
+                                             <h3>{{z_recomm_0.name}}</h3>
+                                             <h5> {{z_recomm_0.category}}</h5>
+                                             <small>WWGSCore : {{z_recomm_0.WWGScore}}</small>
+                                        </div>
+                                   </div>
+                         </div>
+                    </a>
+               </div>
+
+               <div class="col-md-4 col-sm-6">
+                    <a href="single-project.html">
+                         <div class="portfolio-thumb">
+                              <img src="{% static '/resources/theme/images/zerowaste/' %}{{z_recomm_1.name}}.jpg" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-overlay">
+                                        <div class="portfolio-item">
+                                             <h3>{{z_recomm_1.name}}</h3>
+                                             <h5> {{z_recomm_1.category}}</h5>
+                                             <small>WWGSCore : {{z_recomm_1.WWGScore}}</small>
+                                        </div>
+                                   </div>
+                         </div>
+                    </a>
+               </div>
+
+               <div class="col-md-4 col-sm-6">
+                    <a href="single-project.html">
+                         <div class="portfolio-thumb">
+                              <img src="{% static '/resources/theme/images/zerowaste/' %}{{z_recomm_2.name}}.jpg" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-overlay">
+                                        <div class="portfolio-item">
+                                             <h3>{{z_recomm_2.name}}</h3>
+                                             <h5> {{z_recomm_2.category}}</h5>
+                                             <small>WWGSCore : {{z_recomm_2.WWGScore}}</small>
+                                        </div>
+                                   </div>
+                         </div>
+                    </a>
+               </div>
+
+               {% comment %} <div class="col-md-12 col-sm-12 text-center">
+                    <h4>회원 가입을 원할경우 <a href="../login">Login page</a></h4>
+               </div> {% endcomment %}
+
+          </div>
+     </div>
+</section>
+
+<!-- Home Section -->
+
+<section id="home">
+     <div class="container">
+          <div class="row">
+               <div class="col-md-12 col-sm-12">
+                    <h2><b> 이번 주 인기 게시글 </b></h2>
+                    <hr>
+               </div>
+          </div>
+     </div>
+</section>
+
+<!-- Portfolio Section -->
+
+<section id="portfolio">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-4 col-sm-6">
+                    <a href="single-project.html">
+                         <div class="portfolio-thumb">
+                              <img src="{% static '/resources/theme/images/vegan/' %}{{top_recomm_0.name}}.jpg" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-overlay">
+                                        <div class="portfolio-item">
+                                             <h3>{{top_recomm_0.name}}</h3>
+                                             <h5> {{top_recomm_0.category}}</h5>
+                                             <small>WWGSCore : {{top_score_0}}</small>
+                                        </div>
+                                   </div>
+                         </div>
+                    </a>
+               </div>
+
+               <div class="col-md-4 col-sm-6">
+                    <a href="single-project.html">
+                         <div class="portfolio-thumb">
+                              <img src="{% static '/resources/theme/images/vegan/' %}{{top_recomm_1.name}}.jpg" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-overlay">
+                                        <div class="portfolio-item">
+                                             <h3>{{top_recomm_1.name}}</h3>
+                                             <h5> {{top_recomm_1.category}}</h5>
+                                             <small>WWGSCore : {{top_score_1}}</small>
+                                        </div>
+                                   </div>
+                         </div>
+                    </a>
+               </div>
+
+               <div class="col-md-4 col-sm-6">
+                    <a href="single-project.html">
+                         <div class="portfolio-thumb">
+                              <img src="{% static '/resources/theme/images/vegan/' %}{{top_recomm_2.name}}.jpg" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-overlay">
+                                        <div class="portfolio-item">
+                                             <h3>{{top_recomm_2.name}}</h3>
+                                             <h5> {{top_recomm_2.category}}</h5>
+                                             <small>WWGSCore : {{top_score_2}}</small>
+                                        </div>
+                                   </div>
+                         </div>
+                    </a>
+               </div>
+
+               <div class="col-md-4 col-sm-6">
+                    <a href="single-project.html">
+                         <div class="portfolio-thumb">
+                              <img src="{% static '/resources/theme/images/zerowaste/' %}{{top_recomm_3.name}}.jpg" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-overlay">
+                                        <div class="portfolio-item">
+                                             <h3>{{top_recomm_3.name}}</h3>
+                                             <h5> {{top_recomm_3.category}}</h5>
+                                             <small>WWGSCore : {{top_score_3}}</small>
+                                        </div>
+                                   </div>
+                         </div>
+                    </a>
+               </div>
+
+               <div class="col-md-4 col-sm-6">
+                    <a href="single-project.html">
+                         <div class="portfolio-thumb">
+                              <img src="{% static '/resources/theme/images/zerowaste/' %}{{top_recomm_4.name}}.jpg" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-overlay">
+                                        <div class="portfolio-item">
+                                             <h3>{{top_recomm_4.name}}</h3>
+                                             <h5> {{top_recomm_4.category}}</h5>
+                                             <small>WWGSCore : {{top_score_4}}</small>
+                                        </div>
+                                   </div>
+                         </div>
+                    </a>
+               </div>
+
+               <div class="col-md-4 col-sm-6">
+                    <a href="single-project.html">
+                         <div class="portfolio-thumb">
+                              <img src="{% static '/resources/theme/images/zerowaste/' %}{{top_recomm_5.name}}.jpg" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-overlay">
+                                        <div class="portfolio-item">
+                                             <h3>{{top_recomm_5.name}}</h3>
+                                             <h5> {{top_recomm_5.category}}</h5>
+                                             <small>WWGSCore : {{top_score_5}}</small>
+                                        </div>
+                                   </div>
+                         </div>
+                    </a>
+               </div>
+
+               <div class="col-md-12 col-sm-12 text-center">
+                    <h4>회원 가입을 원할경우 <a href="../login">Login page</a></h4>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Footer Section -->
+
+<footer>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-3 col-sm-3">
+                    <img src="{% static '/resources/theme/images/WWG_1.png' %}" alt="WWG" width="70" style="max-width:100%;height:auto;image-rendering:-webkit-optimize-contrast;">
+               </div>
+
+               <div class="col-md-4 col-sm-4">
+                    <p>Environmental protection begins from the little changes we make in our daily lives.</p>
+               </div>
+
+               <div class="col-md-offset-1 col-md-4 col-sm-offset-1 col-sm-3">
+                    <p><a href="https://github.com/ominiv/WWG">github address</a></p>
+               </div>
+
+               <div class="clearfix col-md-12 col-sm-12">
+                    <hr>
+               </div>
+
+               <div class="col-md-6 col-sm-6">
+                    <div class="footer-copyright">
+                         <p>2021.November WWG | All Rights Reserved.</p>
+                    </div>
+               </div>
+
+               <div class="col-md-6 col-sm-6">
+                    <ul class="social-icon">
+                         <li><a href="https://github.com/ominiv/WWG" class="fa fa-github"></a></li>
+                    </ul>
+               </div>
+
+          </div>
+     </div>
+</footer>
+
+
+<!-- SCRIPTS -->
+
+<script src="{% static '/resources/theme/js/jquery.js' %}"></script>
+<script src="{% static '/resources/theme/js/bootstrap.min.js' %}"></script>
+<script src="{% static '/resources/theme/js/custom.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>WWG Zero-waste & No-Plastic & Vegan Map</title>
+
+<link rel="stylesheet" href="{% static '/resources/theme/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static '/resources/theme/css/font-awesome.min.css' %}">
+
+<!-- Main css -->
+<link rel="stylesheet" href="{% static '/resources/theme/css/style.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- PRE LOADER -->
+
+<div class="preloader">
+     <div class="sk-spinner sk-spinner-wordpress">
+          <span class="sk-inner-circle"></span>
+     </div>
+</div>
+
+<!-- Navigation section  -->
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+     <div class="container">
+
+          <div class="navbar-header">
+               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+               </button>
+               <a href="../main" class="navbar-brand">
+                    <img src="{% static '/resources/theme/images/WWG_1.png' %}" alt="WWG" width="70" style="max-width:100%;height:auto;image-rendering:-webkit-optimize-contrast;">
+               </a>
+          </div>
+          <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="../main">About</a></li>
+
+                    <li><a href="../map">Map</a>
+                         <ul>
+                              <li><a href="../map_zerowaste">Zerowaste</a> </li>
+                              <li><a href="../map_vegan">Vegan</a> </li>
+                         </ul>
+                    </li>
+
+                    <li><a href="{% url 'boardApp:list' %}">Board</a></li>
+                    {% if request.session.user %}
+                    <li><a href="../logout">[{{user_id}}]  Logout</a></li>
+                    {% else %}
+                    <li><a href="../login">Login</a></li>
+                    {% endif %}
+               </ul>
+          </div>
+
+  </div>
+</div>
+
+<!-- Home Section -->
+<section id="home">
+     <div class="container">
+          <div class="row">
+               <div class="col-md-12 col-sm-12">
+                    <br>
+                    <br>
+                    <img src="{% static '/resources/theme/images/WWG_3.png' %}" width="500">
+               </div>
+          </div>
+     </div>
+</section>
+
+<!-- About Section -->
+
+<section id="about">
+     <div class="container">
+          <div class="row">
+               <div class="col-md-offset-1 col-md-10 col-sm-12">
+                    <div class="section-title">
+                    </div>
+                    <div class="col-md-5 col-sm-12">
+                         <br><br><br><br><br><br>
+                         {% comment %} <h2><b>GreenSumer를 위한<br> 친환경 식당 및 마켓  추천 서비스<br> </b></h2>
+                         <p>식당, 마켓 정보부터 친환경 캠페인 정보까지, 이웃과 함께해요. <br> 가깝고 따뜻한 당신의 근처를 만들어요.</p> {% endcomment %}
+                         <h2><b>GreenSumer를 위한 <br>WWG</b></h2>
+                         <p>친환경 음식점, 매장과 친환경 정보를 공유해봐요. </p>
+
+                    </div>
+                    <div class="col-md-7 col-sm-12">
+                         <img src="{% static '/resources/theme/images/About.png' %}" class="img-responsive" alt="About" height="500">
+                    </div>
+<hr>
+                    <div class="col-md-7 col-sm-12">
+                         <img src="{% static '/resources/theme/images/About_map.png' %}" class="img-responsive" alt="About" height="100">
+                    </div>
+                    <div class="col-md-5 col-sm-12">
+                         <br><br><br><br><br><br>
+                         {% comment %} <h2><b>우리 동네<br> 친환경 식당 및 마켓<br> </b></h2>
+                         <p>동네 주민들과 가깝고 소통을 지금 경험해보세요.</p> {% endcomment %}
+                         <h2><b>우리 동네 비건<br> 식당과 친환경 스토어<br> </br></h2>
+                         <p>근처의 비건 식당과 제로웨이스트샵, 리필샵<br> 지금 방문해 보세요.</p>
+                    </div>
+<hr>
+                    <div class="col-md-7 col-sm-12">
+                         <img src="{% static '/resources/theme/images/About_recomm.png' %}" class="img-responsive" alt="About" height="500">
+                    </div>
+                    <div class="col-md-5 col-sm-12">
+                         <br><br><br><br><br><br>
+                         <h2><b>당신만을 위한 추천장소<br> </b></h2>
+                         <p>취향에 알맞는 추천정보를 지금 경험해보세요.</p>
+                    </div>
+                    <div class="col-md-7 col-sm-12">
+                         <img src="{% static '/resources/theme/images/About_board.png' %}" class="img-responsive" alt="About" height="500">
+                    </div>
+                    <div class="col-md-5 col-sm-12">
+                         <br><br><br><br><br><br>
+                         <h2><b>함께 공유해요<br> 지구를 위한 정보<br> </b></h2>
+                         <p>좋은 정보는 같이 공유하고 실천해봐요.</p>
+                    </div>
+
+               <div class="col-md-12 col-sm-12">
+                    <br><br><br><br><br><br><br><br><br>
+
+               </div>
+                    {% comment %} <div class="clearfix"></div> {% endcomment %}
+                    <hr>
+                    <p></p>
+                    <p></p>
+                    <hr>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Footer Section -->
+
+<footer>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-3 col-sm-3">
+                    <img src="{% static '/resources/theme/images/WWG_1.png' %}" alt="WWG" width="70" style="max-width:100%;height:auto;image-rendering:-webkit-optimize-contrast;">
+               </div>
+
+               <div class="col-md-4 col-sm-4">
+                    <p>Environmental protection begins from the little changes we make in our daily lives.</p>
+               </div>
+
+               <div class="col-md-offset-1 col-md-4 col-sm-offset-1 col-sm-3">
+                    <p><a href="https://github.com/ominiv/WWG">github address</a></p>
+               </div>
+
+               <div class="clearfix col-md-12 col-sm-12">
+                    <hr>
+               </div>
+
+               <div class="col-md-6 col-sm-6">
+                    <div class="footer-copyright">
+                         <p>2021.November WWG | All Rights Reserved.</p>
+                    </div>
+               </div>
+
+               <div class="col-md-6 col-sm-6">
+                    <ul class="social-icon">
+                         <li><a href="https://github.com/ominiv/WWG" class="fa fa-github"></a></li>
+                    </ul>
+               </div>
+
+          </div>
+     </div>
+</footer>
+
+
+<!-- SCRIPTS -->
+
+<script src="{% static '/resources/theme/js/jquery.js' %}"></script>
+<script src="{% static '/resources/theme/js/bootstrap.min.js' %}"></script>
+<script src="{% static '/resources/theme/js/custom.js' %}"></script>
+
+</body>
+</html>

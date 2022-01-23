@@ -33,11 +33,7 @@
 4. 웹 구현<br>Django 프레임워크를 이용
     
 5. 수행결과
-    
-    a. 주변의 식당 정보제공<br><img src="README.assets/About_map.png"  height=200><br>
-    b. 개인의 취향에 따른 추천서비스<br><img src="README.assets/About_recomm.png"  height=200><br>
-    c. 친환경과 관련된 정보제공<br><img src="README.assets/About_board.png"  height=200>
-
+    <img src="README.assets/WWG_MainPage.png" ailgn=center width=400>
 ---
 
 ### 결과

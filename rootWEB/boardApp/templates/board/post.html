@@ -1,0 +1,169 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>WWG Zero-waste & No-Plastic & Vegan Map</title>
+
+<link rel="stylesheet" href="{% static '/resources/theme/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static '/resources/theme/css/font-awesome.min.css' %}">
+
+<!-- Main css -->
+<link rel="stylesheet" href="{% static '/resources/theme/css/style.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
+
+     <script src="./index.js"></script>
+
+</head>
+<body>
+
+<!-- PRE LOADER -->
+
+<div class="preloader">
+     <div class="sk-spinner sk-spinner-wordpress">
+          <span class="sk-inner-circle"></span>
+     </div>
+</div>
+
+<!-- Navigation section  -->
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+     <div class="container">
+
+          <div class="navbar-header">
+               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+               </button>
+               <a href="../main" class="navbar-brand">
+                    <img src="{% static '/resources/theme/images/WWG_1.png' %}" alt="WWG" width="70" style="max-width:100%;height:auto;image-rendering:-webkit-optimize-contrast;">
+               </a>
+          </div>
+          <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../map/main">About</a></li>
+
+                    <li><a href="../map/map">Map</a>
+                         <ul>
+                              <li><a href="../map/map_zerowaste">Zerowaste</a> </li>
+                              <li><a href="../map/map_vegan">Vegan</a> </li>
+                         </ul>
+                    </li>
+
+                    <li class="active"><a href="../board">Board</a></li>
+                    {% if request.session.user %}
+                    <li><a href="../map/logout">[{{user_id}}]  Logout</a></li>
+                    {% else %}
+                    <li><a href="../map/login">Login</a></li>
+                    {% endif %}
+               </ul>
+          </div>
+
+  </div>
+</div>
+
+<!-- Blog Section -->
+
+<section id="blog">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-offset-1 col-md-10 col-sm-12">
+                    <div class="section-title">
+                         <h3>글쓰기</h3>
+                    </div>
+<div class="container">
+    <form action="/board/post/" enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        <div class="form-group row">
+            <label for="inputTitle" class="col-sm-2 col-form-label"><strong>제목</strong></label>
+            <div class="col-sm-10">
+                <input type="text" name="title" class="form-control" id="inputTitle">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputAuthor" class="col-sm-2 col-form-label"><strong>작성자</strong></label>
+            <div class="col-sm-10">
+                <input type="text" name="author" class="form-control" id="inputAuthor">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputContent" class="col-sm-2 col-form-label"><strong>내용</strong></label>
+            <div class="col-sm-10">
+                <textarea type="text" name="content" class="form-control" id="inputContent"></textarea>
+            </div>
+        </div>
+        <input type="file" name="mainphoto" accept="image/*><br>
+
+        <div class="row">
+            <div class="col-auto mr-auto"></div>
+            <div class="col-auto">
+                <input class="btn btn-primary" type="submit" role="button" value="글쓰기">
+            </div>
+        </div>
+    </form>
+</div>
+
+
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Footer Section -->
+
+<footer>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-3 col-sm-3">
+                    <img src="{% static '/resources/theme/images/WWG_1.png' %}" alt="WWG" width="70" style="max-width:100%;height:auto;image-rendering:-webkit-optimize-contrast;">
+               </div>
+
+               <div class="col-md-4 col-sm-4">
+                    <p>Environmental protection begins from the little changes we make in our daily lives.</p>
+               </div>
+
+               <div class="col-md-offset-1 col-md-4 col-sm-offset-1 col-sm-3">
+                    <p><a href="https://github.com/ominiv/WWG">github address</a></p>
+               </div>
+
+               <div class="clearfix col-md-12 col-sm-12">
+                    <hr>
+               </div>
+
+               <div class="col-md-6 col-sm-6">
+                    <div class="footer-copyright">
+                         <p>2021.November WWG | All Rights Reserved.</p>
+                    </div>
+               </div>
+
+               <div class="col-md-6 col-sm-6">
+                    <ul class="social-icon">
+                         <li><a href="https://github.com/ominiv/WWG" class="fa fa-github"></a></li>
+                    </ul>
+               </div>
+
+          </div>
+     </div>
+</footer>
+
+<!-- SCRIPTS -->
+
+<script src="{% static '/resources/theme/js/jquery.js' %}"></script>
+<script src="{% static '/resources/theme/js/bootstrap.min.js' %}"></script>
+<script src="{% static '/resources/theme/js/custom.js' %}"></script>
+
+</body>
+</html>

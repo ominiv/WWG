@@ -1,0 +1,613 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>WWG Zero-waste & No-Plastic & Vegan Map</title>
+
+<link rel="stylesheet" href="{% static '/resources/theme/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static '/resources/theme/css/font-awesome.min.css' %}">
+
+<!-- Main css -->
+<link rel="stylesheet" href="{% static '/resources/theme/css/style.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
+<link rel="short icon" href="#">
+
+</head>
+<body>
+
+<!-- PRE LOADER -->
+
+<div class="preloader">
+     <div class="sk-spinner sk-spinner-wordpress">
+          <span class="sk-inner-circle"></span>
+     </div>
+</div>
+
+<!-- Navigation section  -->
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+     <div class="container">
+
+          <div class="navbar-header">
+               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+               </button>
+               <a href="../main" class="navbar-brand">
+                    <img src="{% static '/resources/theme/images/WWG_1.png' %}" alt="WWG" width="70" style="max-width:100%;height:auto;image-rendering:-webkit-optimize-contrast;">
+               </a>
+          </div>
+          <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../main">About</a></li>
+
+                    <li class="active"><a href="../map">Map</a>
+                         <ul>
+                              <li><a href="../map_zerowaste">Zerowaste</a> </li>
+                              <li><a href="../map_vegan">Vegan</a> </li>
+                         </ul>
+                    </li>
+
+                    <li><a href="{% url 'boardApp:list' %}">Board</a></li>
+                    {% if request.session.user %}
+                    <li><a href="../logout">[{{user_id}}]  Logout</a></li>
+                    {% else %}
+                    <li><a href="../login">Login</a></li>
+                    {% endif %}
+               </ul>
+          </div>
+
+  </div>
+</div>
+
+<section id="home">
+     <div class="container">
+          <div class="row">
+               <div class="col-md-12 col-sm-12">
+                    <h5>VEGAN MAP</h5>
+                    <hr>
+               </div>
+          </div>
+     </div>
+</section>
+
+<!-- Map Section -->
+
+<section id="main map">
+     <div class="container">
+          <div class="row">
+
+               <div class="center">
+                    <div class="radio-group">
+                         <label class="radio-label">
+                              <input name="category" class="button" type="radio" id="VEGAN_ALL" checked="checked">
+                              <span class="inner-label">전체</span>
+                         </label>
+                         <label class="radio-label">
+                              <input name="category" class="button" type="radio" id="MEMBERSHIP">
+                              <span class="inner-label">멤버쉽</span>
+                         </label>
+                         <label class="radio-label">
+                              <input name="category" class="button" type="radio" id="KOREAN">
+                              <span class="inner-label">한식</span>
+                         </label>
+                         <label class="radio-label">
+                              <input name="category" class="button" type="radio" id="WESTERN">
+                              <span class="inner-label">양식</span>
+                         </label>
+                         <label class="radio-label">
+                              <input name="category" class="button" type="radio" id="CHINESE">
+                              <span class="inner-label">중식</span>
+                         </label>
+                         <label class="radio-label">
+                              <input name="category" class="button" type="radio" id="JAPANESE">
+                              <span class="inner-label">일식</span>
+                         </label>
+                         <label class="radio-label">
+                              <input name="category" class="button" type="radio" id="CAFE">
+                              <span class="inner-label">카페</span>
+                         </label>
+                         <label class="radio-label">
+                              <input name="category" class="button" type="radio" id="BAKERY">
+                              <span class="inner-label">베이커리</span>
+                         </label>
+                         <label class="radio-label">
+                              <input name="category" class="button" type="radio" id="VEGAN_ETC">
+                              <span class="inner-label">기타</span>
+                         </label>
+                    </div>
+               </div>
+
+               <div id="map"></div>
+               <script type= "text/javascript" src="https://maps.googleapis.com/maps/api/js?appkey=%GOOGLE_MAPS_API_KEY%&callback=initMap&v=weekly" async></script>
+
+               <div class="col-md-12 col-sm-12 text-center">
+                    <h4>회원 가입을 원할경우 <a href="../login">Login page</a></h4>
+               </div>
+          </div>
+     </div>
+</section>
+
+<!-- Footer Section -->
+
+<footer>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-3 col-sm-3">
+                    <img src="{% static '/resources/theme/images/WWG_1.png' %}" alt="WWG" width="70" style="max-width:100%;height:auto;image-rendering:-webkit-optimize-contrast;">
+               </div>
+
+               <div class="col-md-4 col-sm-4">
+                    <p>Environmental protection begins from the little changes we make in our daily lives.</p>
+               </div>
+
+               <div class="col-md-offset-1 col-md-4 col-sm-offset-1 col-sm-3">
+                    <p><a href="https://github.com/ominiv/WWG">github address</a></p>
+               </div>
+
+               <div class="clearfix col-md-12 col-sm-12">
+                    <hr>
+               </div>
+
+               <div class="col-md-6 col-sm-6">
+                    <div class="footer-copyright">
+                         <p>2021.November WWG | All Rights Reserved.</p>
+                    </div>
+               </div>
+
+               <div class="col-md-6 col-sm-6">
+                    <ul class="social-icon">
+                         <li><a href="https://github.com/ominiv/WWG" class="fa fa-github"></a></li>
+                    </ul>
+               </div>
+
+          </div>
+     </div>
+</footer>
+
+<!-- SCRIPTS -->
+
+<script src="{% static '/resources/theme/js/jquery.js' %}"></script>
+<script src="{% static '/resources/theme/js/bootstrap.min.js' %}"></script>
+<script src="{% static '/resources/theme/js/custom.js' %}"></script>
+
+<script>
+var map ;
+var veganPlaces = [] ;
+
+/* Map 생성 */
+function initMap() {
+     var defaultOptions = {
+          zoom : 12 ,
+          center : new google.maps.LatLng(37.5643135 , 127.0016985),
+          disableDefaultUI : true ,
+          zoomControl : false ,
+          gestureHandling : 'greedy' ,
+     }
+     map = new google.maps.Map(document.getElementById("map"), defaultOptions);
+     getData() ;
+     initPopup() ;
+}
+
+function getData() {
+     $('.button').click(function() {
+          var button_id = $(this).attr('id') ;
+          switch(button_id) {
+              case 'VEGAN_ALL' :
+              clearMarkers() ;
+              $.ajax({
+                   url : '../vegan_data_all/' ,
+                   type : 'post' ,
+                   dataType : 'json' ,
+                   data : { 'csrfmiddlewaretoken' : '{{csrf_token}}' } ,
+                   success : function(vegan_list) {
+                        $.each(vegan_list, function(key, value) {
+                             veganPlaces.push(value)
+                        });
+                        console.log(veganPlaces)
+                        drawMarkers(veganPlaces) ;
+                        makeInfowindow(veganPlaces) ;
+                        veganPlaces = [] ;
+                   } ,
+                   error : function(request , status , error) {
+                        alert('state - '+request.state)
+                        alert('msg - '+request.responseText)
+                        alert('error - '+error)
+                   }
+              });
+              break ;
+
+              case 'KOREAN' :
+              clearMarkers() ;
+              $.ajax({
+                   url : '../vegan_data_kor/' ,
+                   type : 'post' ,
+                   dataType : 'json' ,
+                   data : { 'csrfmiddlewaretoken' : '{{csrf_token}}' } ,
+                   success : function(vegan_list) {
+                        $.each(vegan_list, function(key, value) {
+                             veganPlaces.push(value)
+                        });
+                        console.log(veganPlaces)
+                        drawMarkers(veganPlaces) ;
+                        makeInfowindow(veganPlaces) ;
+                        veganPlaces = [] ;
+                   } ,
+                   error : function(request , status , error) {
+                        alert('state - '+request.state)
+                        alert('msg - '+request.responseText)
+                        alert('error - '+error)
+                   }
+              });
+              break ;
+
+              case 'WESTERN' :
+              clearMarkers() ;
+              $.ajax({
+                   url : '../vegan_data_wes/' ,
+                   type : 'post' ,
+                   dataType : 'json' ,
+                   data : { 'csrfmiddlewaretoken' : '{{csrf_token}}' } ,
+                   success : function(vegan_list) {
+                        $.each(vegan_list, function(key, value) {
+                             veganPlaces.push(value)
+                        });
+                        console.log(veganPlaces)
+                        drawMarkers(veganPlaces) ;
+                        makeInfowindow(veganPlaces) ;
+                        veganPlaces = [] ;
+                   } ,
+                   error : function(request , status , error) {
+                        alert('state - '+request.state)
+                        alert('msg - '+request.responseText)
+                        alert('error - '+error)
+                   }
+              });
+              break ;
+
+              case 'CHINESE' :
+              clearMarkers() ;
+              $.ajax({
+                   url : '../vegan_data_chi/' ,
+                   type : 'post' ,
+                   dataType : 'json' ,
+                   data : { 'csrfmiddlewaretoken' : '{{csrf_token}}' } ,
+                   success : function(vegan_list) {
+                        $.each(vegan_list, function(key, value) {
+                             veganPlaces.push(value)
+                        });
+                        console.log(veganPlaces)
+                        drawMarkers(veganPlaces) ;
+                        makeInfowindow(veganPlaces) ;
+                        veganPlaces = [] ;
+                   } ,
+                   error : function(request , status , error) {
+                        alert('state - '+request.state)
+                        alert('msg - '+request.responseText)
+                        alert('error - '+error)
+                   }
+              });
+              break ;
+
+              case 'JAPANESE' :
+              clearMarkers() ;
+              $.ajax({
+                   url : '../vegan_data_jap/' ,
+                   type : 'post' ,
+                   dataType : 'json' ,
+                   data : { 'csrfmiddlewaretoken' : '{{csrf_token}}' } ,
+                   success : function(vegan_list) {
+                        $.each(vegan_list, function(key, value) {
+                             veganPlaces.push(value)
+                        });
+                        console.log(veganPlaces)
+                        drawMarkers(veganPlaces) ;
+                        makeInfowindow(veganPlaces) ;
+                        veganPlaces = [] ;
+                   } ,
+                   error : function(request , status , error) {
+                        alert('state - '+request.state)
+                        alert('msg - '+request.responseText)
+                        alert('error - '+error)
+                   }
+              });
+              break ;
+
+              case 'CAFE' :
+              clearMarkers() ;
+              $.ajax({
+                   url : '../vegan_data_cafe/' ,
+                   type : 'post' ,
+                   dataType : 'json' ,
+                   data : { 'csrfmiddlewaretoken' : '{{csrf_token}}' } ,
+                   success : function(vegan_list) {
+                        $.each(vegan_list, function(key, value) {
+                             veganPlaces.push(value)
+                        });
+                        console.log(veganPlaces)
+                        drawMarkers(veganPlaces) ;
+                        makeInfowindow(veganPlaces) ;
+                        veganPlaces = [] ;
+                   } ,
+                   error : function(request , status , error) {
+                        alert('state - '+request.state)
+                        alert('msg - '+request.responseText)
+                        alert('error - '+error)
+                   }
+              });
+              break ;
+
+              case 'BAKERY' :
+              clearMarkers() ;
+              $.ajax({
+                   url : '../vegan_data_bake/' ,
+                   type : 'post' ,
+                   dataType : 'json' ,
+                   data : { 'csrfmiddlewaretoken' : '{{csrf_token}}' } ,
+                   success : function(vegan_list) {
+                        $.each(vegan_list, function(key, value) {
+                             veganPlaces.push(value)
+                        });
+                        console.log(veganPlaces)
+                        drawMarkers(veganPlaces) ;
+                        makeInfowindow(veganPlaces) ;
+                        veganPlaces = [] ;
+                   } ,
+                   error : function(request , status , error) {
+                        alert('state - '+request.state)
+                        alert('msg - '+request.responseText)
+                        alert('error - '+error)
+                   }
+              });
+              break ;
+
+              case 'VEGAN_ETC' :
+              clearMarkers() ;
+              $.ajax({
+                   url : '../vegan_data_etc/' ,
+                   type : 'post' ,
+                   dataType : 'json' ,
+                   data : { 'csrfmiddlewaretoken' : '{{csrf_token}}' } ,
+                   success : function(vegan_list) {
+                        $.each(vegan_list, function(key, value) {
+                             veganPlaces.push(value)
+                        });
+                        console.log(veganPlaces)
+                        drawMarkers(veganPlaces) ;
+                        makeInfowindow(veganPlaces) ;
+                        veganPlaces = [] ;
+                   } ,
+                   error : function(request , status , error) {
+                        alert('state - '+request.state)
+                        alert('msg - '+request.responseText)
+                        alert('error - '+error)
+                   }
+              });
+              break ;
+
+              case 'MEMBERSHIP' :
+              clearMarkers() ;
+              $.ajax({
+                   url : '../vegan_membership/' ,
+                   type : 'post' ,
+                   dataType : 'json' ,
+                   data : { 'csrfmiddlewaretoken' : '{{csrf_token}}' } ,
+                   success : function(vegan_list) {
+                        $.each(vegan_list, function(key, value) {
+                             veganPlaces.push(value)
+                        });
+                        console.log(veganPlaces)
+                        drawMarkers(veganPlaces) ;
+                        makeInfowindow(veganPlaces) ;
+                        veganPlaces = [] ;
+                   } ,
+                   error : function(request , status , error) {
+                        alert('state - '+request.state)
+                        alert('msg - '+request.responseText)
+                        alert('error - '+error)
+                   }
+              });
+              break ;
+          }
+     });
+}
+
+
+/* -------------------------------
+                Marker 생성
+--------------------------------- */
+var markers = [] ;
+/* list 초기화 */
+function clearMarkers() {
+     for(var i = 0 ; i < markers.length ; i++) {
+          markers[i].setMap(null);
+     }
+     markers = [] ;
+}
+
+var infowindow_contents = [] ;
+/* 마커 뿌리기 */
+function drawMarkers(veganPlaces) {
+     infowindow_contents = [] ;
+
+     var myIcon = {
+         url : "{% static '/resources/theme/images/vegan.png' %}" ,
+         size : new google.maps.Size(40 , 40) ,
+         origin : new google.maps.Point(0 , 0) ,
+         anchor : new google.maps.Point(20 , 40) ,
+         scaledSize : new google.maps.Size(40 , 40) ,
+     } ;
+
+      for(var i = 0 ; i < veganPlaces.length ; i++) {
+            /* marker 생성 */
+           var marker = new google.maps.Marker({
+                 map : map ,
+                 icon : myIcon ,
+                 title : veganPlaces[i].name ,
+                 position :  new google.maps.LatLng(veganPlaces[i].lat , veganPlaces[i].lng) ,
+            });
+
+          marker.name = veganPlaces[i].name ;
+          marker.number = veganPlaces[i].number ;
+          marker.address = veganPlaces[i].address ;
+          marker.category = veganPlaces[i].category ;
+          marker.about = veganPlaces[i].about ;
+          marker.lat = veganPlaces[i].lat ;
+          marker.lng = veganPlaces[i].lng ;
+
+          markers.push(marker) ;
+          makeInfowindow(marker) ;
+          console.log("markers : " + marker) ;
+     }
+     showInfowindow(markers) ;
+}
+
+/* info창 */
+function makeInfowindow(place) {
+<!--     var img = "{% static '/resources/theme/images/vegan/' %}{{place.name}}.jpg"-->
+     var temp_content =
+     "<div id = 'infoTitle' class = 'info_title'><div class='place_name'>" + place.name +
+<!--     "</div></div><div class='info_img'>" + img +-->
+    "</div></div><div class='info_rest'>📍  " +
+     place.address +
+     "</div><div class='info_rest'>📞 " +
+     place.number +
+     "</div><div class='info_rest'>📜 " +
+     place.about +
+     "</div><div class='info_rest'>⭐" +
+     place.score +
+     "</div><div class='info_rest'>➕ " +
+     place.recomm;
+
+     console.log('temp_content : ' + temp_content) ;
+     infowindow_contents.push(temp_content) ;
+}
+
+/* marker 클릭 시 popup */
+function showInfowindow(markers) {
+     for(let i = 0 ; i < markers.length ; i++) {
+          google.maps.event.addListener(markers[i] , "click" , async function() {
+               console.log("position : " + markers[i].position) ;
+               map.setCenter(markers[i].position) ;
+               map.setZoom(16) ;
+
+               if(infowindow_contents[i]) {
+                    await removePopup() ;
+                    await createPopup(markers[i].position , infowindow_contents[i]) ;
+
+                    /* 상세보기 */
+                    var moreDetail = document.getElementById("moreDetail") ;
+                    if( moreDetail ) {
+                         moreDetail.addEventListener("click" , function() {
+                         console.log("click") ;
+                         showPlaceDetail(markers[i].title) ;
+                         }) ;
+                    }
+                    console.log("marker : " + markers[i].title) ;
+               }
+          }) ;
+     }
+}
+
+let popup , Popup ;
+/* google 지도 로드될 때 실행되는 initAutocomplete() 에서 호출 */
+function initPopup() {
+     Popup = createPopupClass() ;
+}
+
+/* marker 클릭 시 호출 */
+function createPopup(position , content) {
+     popup = new Popup(position , content) ;
+     console.log('popup : ' + popup) ;
+     popup.setMap(map) ;
+
+     map.addListener("click" , function() {
+        removePopup() ;
+        map.setZoom(12) ;
+     }) ;
+}
+
+/* marker 클릭시 이전 팝업창 삭제 */
+function removePopup() {
+     if(popup != undefined) {
+          popup.setMap(null) ;
+     }
+}
+
+
+/* ----------------------------------
+            Customized Popup
+------------------------------------ */
+/* popup 생성을 위한 클래스 */
+function createPopupClass() {
+     Popup = function(position , content) {
+           this.position = position;
+
+          this.contentNode = document.createElement("div") ;
+          this.contentNode.className = "popup_wrap" ;
+
+          const popupInfo = document.createElement("div") ;
+          popupInfo.className = "popup" ;
+          this.contentNode.appendChild(popupInfo) ;
+          popupInfo.innerHTML = content ;
+
+          const popupAnchor = document.createElement("div") ;
+          popupAnchor.className = "popup-anchor" ;
+          this.contentNode.appendChild(popupAnchor) ;
+
+          google.maps.OverlayView.preventMapHitsAndGesturesFrom(this.contentNode) ;
+     }
+
+     Popup.prototype = Object.create(google.maps.OverlayView.prototype);
+
+    /* popup이 지도에 추가될 때 호출 */
+     Popup.prototype.onAdd = function() {
+        this.getPanes().floatPane.appendChild(this.contentNode);
+     } ;
+
+    /* popup이 지도에 삭제될 때 호출 */
+     Popup.prototype.onRemove = function() {
+       if (this.contentNode.parentElement) {
+         this.contentNode.parentElement.removeChild(this.contentNode);
+       }
+     } ;
+
+    /* popup을 그릴 때 호출 */
+     Popup.prototype.draw = function() {
+           const divPosition = this.getProjection().fromLatLngToDivPixel(this.position);
+
+           /* 시야에서 멀어질 경우 popup hide */
+           const display = Math.abs(divPosition.x) < 4000 && Math.abs(divPosition.y) < 4000
+               ? "block"
+               : "none";
+
+           if (display === "block") {
+             this.contentNode.style.left = divPosition.x + "px";
+             this.contentNode.style.top = divPosition.y -55+ "px";
+           }
+
+           if (this.contentNode.style.display !== display) {
+             this.contentNode.style.display = display;
+           }
+     } ;
+
+     return Popup ;
+}
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>WWG Zero-waste & No-Plastic & Vegan Map</title>
+
+<link rel="stylesheet" href="{% static '/resources/theme/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static '/resources/theme/css/font-awesome.min.css' %}">
+
+<!-- Main css -->
+<link rel="stylesheet" href="{% static '/resources/theme/css/style.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
+
+     <script src="./index.js"></script>
+
+</head>
+<body>
+
+<!-- PRE LOADER -->
+
+<div class="preloader">
+     <div class="sk-spinner sk-spinner-wordpress">
+          <span class="sk-inner-circle"></span>
+     </div>
+</div>
+
+<!-- Navigation section  -->
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+     <div class="container">
+
+          <div class="navbar-header">
+               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+               </button>
+               <a href="../main" class="navbar-brand">
+                    <img src="{% static '/resources/theme/images/WWG_1.png' %}" alt="WWG" width="70" style="max-width:100%;height:auto;image-rendering:-webkit-optimize-contrast;">
+               </a>
+          </div>
+          <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../map/main">About</a></li>
+
+                    <li><a href="../map/map">Map</a>
+                         <ul>
+                              <li><a href="../map/map_zerowaste">Zerowaste</a> </li>
+                              <li><a href="../map/map_vegan">Vegan</a> </li>
+                         </ul>
+                    </li>
+
+                    <li class="active"><a href="../board">Board</a></li>
+                    {% if request.session.user %}
+                    <li><a href="../map/logout">[{{user_id}}]  Logout</a></li>
+                    {% else %}
+                    <li><a href="../map/login">Login</a></li>
+                    {% endif %}
+               </ul>
+          </div>
+
+  </div>
+</div>
+
+<!-- Blog Section -->
+
+<section id="blog">
+     <div class="container">
+          <head>
+    <meta charset="UTF-8">
+    <title>게시판 - {{ board2.title }}</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+</head>
+     </div>
+  <body>
+<header>
+    <div class="navbar navbar-dark bg-dark shadow-sm mb-3">
+        <div class="container d-flex justify-content-between">
+            <a href="/" class="navbar-brand d-flex align-items-center">
+                <strong>게시판</strong>
+            </a>
+        </div>
+    </div>
+</header>
+<br><br><br>
+<div class="container">
+    <div class="row-mt-5">
+        <div class="col-12">
+            <!--본문-->
+            <div class="card" style="width: 100%;">
+                <!--제목,분류,작성일-->
+                <div class="card-header">
+                    <strong style="font-size: 18px;">{{ boards2.title }}</strong>&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[정보게시판]</span>
+                    <span style="float:right;">{{ boards2.created_date | date:"Y-m-d h:i" }}</span>
+                </div>
+                <div class="card-body" style="min-height: 400px; color:black;">
+                    <!--작성자, 조회수-->
+                    <div>
+                        <span><i class="fas fa-user-edit"></i>&nbsp;작성자 : {{ boards2.author }}</span>
+                        <span style="float:right;">조회수 : {{ boards2.hits }}</span>
+                    </div>
+                    <hr>
+                    <!--내용-->
+                    <div>
+                        {{ boards2.content | safe }}
+                         <br>
+            {% if boards2.mainphoto %}
+                <img src="{{ boards2.mainphoto.url }}">
+            {% endif %}
+            <br>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="text-right" style="margin-top:-15px;">
+                {% if notice_auth or request.user.level == '0' %}
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='/notice/{{ notice.id }}/edit/'">수정</button>
+                <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
+                <!-- <button class="btn btn-md btn-dark" onclick="location.href='/notice/{{ notice.id }}/delete/'">삭제</button> -->
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='/notice/'">목록으로</button>
+                {% else %}
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='/notice/'">목록으로</button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div id="delete_modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">삭제경고</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>게시글을 삭제하시겠습니까?</p>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="delete_modal()" type="button" class="btn btn-dark">삭제하기</button>
+                    <button type="button" class="btn btn-light" data-dismiss="modal">취소하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</section>
+
+<!-- Footer Section -->
+
+<footer>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-3 col-sm-3">
+                    <img src="{% static '/resources/theme/images/WWG_1.png' %}" alt="WWG" width="70" style="max-width:100%;height:auto;image-rendering:-webkit-optimize-contrast;">
+               </div>
+
+               <div class="col-md-4 col-sm-4">
+                    <p>Environmental protection begins from the little changes we make in our daily lives.</p>
+               </div>
+
+               <div class="col-md-offset-1 col-md-4 col-sm-offset-1 col-sm-3">
+                    <p><a href="https://github.com/ominiv/WWG">github address</a></p>
+               </div>
+
+               <div class="clearfix col-md-12 col-sm-12">
+                    <hr>
+               </div>
+
+               <div class="col-md-6 col-sm-6">
+                    <div class="footer-copyright">
+                         <p>2021.November WWG | All Rights Reserved.</p>
+                    </div>
+               </div>
+
+               <div class="col-md-6 col-sm-6">
+                    <ul class="social-icon">
+                         <li><a href="https://github.com/ominiv/WWG" class="fa fa-github"></a></li>
+                    </ul>
+               </div>
+
+          </div>
+     </div>
+</footer>
+
+
+<!-- SCRIPTS -->
+
+<script src="{% static '/resources/theme/js/jquery.js' %}"></script>
+<script src="{% static '/resources/theme/js/bootstrap.min.js' %}"></script>
+<script src="{% static '/resources/theme/js/custom.js' %}"></script>
+
+</body>
+</html>

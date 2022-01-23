@@ -1,0 +1,528 @@
+
+body {
+    background: #ffffff;
+font-family: 'Work Sans', sans-serif;
+font-style: normal;
+    font-weight: 300;
+overflow-x: hidden;
+}
+
+
+/*---------------------------------------
+    Typorgraphy              
+-----------------------------------------*/
+
+h1,h2,h3,h4,h5,h6 {
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+  
+  h1 {
+      font-size: 62px;
+      padding-bottom: 14px;
+      margin-bottom: 0px;
+  }
+  
+  h2 {
+    font-size: 32px;
+    line-height: 46px;
+  }
+  
+  h3 {
+    font-size: 26px;
+  }
+  
+  h4 {
+    color: #666;
+    font-size: 12px;
+    font-weight: normal;
+    letter-spacing: 2px;
+  }
+  
+  p {
+      color: #777;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 26px;
+      letter-spacing: 0.2px;
+  }
+  
+  strong {
+    font-weight: 400;
+  }
+  
+  .btn-success:focus {
+    background-color: #000;
+    border-color: transparent;
+  }
+  
+  
+  /*---------------------------------------
+      General               
+  -----------------------------------------*/
+  
+  html{
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  a {
+    color: #4d638c;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    text-decoration: none !important;
+  }
+  a:hover, a:active, a:focus {
+    color: #4d638c;
+    outline: none;
+  }
+  
+  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  *:before,
+  *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  #portfolio,
+  #about,
+  #blog,
+  #contact,
+  #single-project,
+  #blog-single-post {
+    padding-top: 80px;
+    padding-bottom: 120px;
+  }
+  
+  .section-title {
+    position: relative;
+    padding-bottom: 62px;
+    text-align: center;
+  }
+  
+  .section-title h3 {
+    color: #555;
+    font-weight: 400;
+    letter-spacing: 4px;
+  }
+  
+  
+
+/*---------------------------------------
+    Preloader section              
+-----------------------------------------*/
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    background: none repeat scroll 0 0 #ffffff;
+  }
+  
+  .sk-spinner-wordpress.sk-spinner {
+    background-color: #bdc3c7;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    position: relative;
+    -webkit-animation: sk-innerCircle 1s linear infinite;
+    animation: sk-innerCircle 1s linear infinite; 
+  }
+  
+  .sk-spinner-wordpress .sk-inner-circle {
+    display: block;
+    background-color: #ffffff;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    border-radius: 8px;
+    top: 5px;
+    left: 5px; 
+  }
+  
+  @-webkit-keyframes sk-innerCircle {
+    0% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0); }
+  
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg); } }
+  
+  @keyframes sk-innerCircle {
+    0% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0); }
+  
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg); } }
+  
+  
+  
+ /*---------------------------------------
+    Main Navigation
+-----------------------------------------*/
+
+.navbar-default {
+    background: #ffffff;
+    padding: 18px 0;
+    border: none;
+    margin-top: 62px;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  border-color: transparent;
+}
+
+.navbar-default .navbar-brand {
+  padding-top: 6px;
+}
+
+.navbar-default .navbar-brand .fa {
+  color: #000;
+  font-size: 42px;
+}
+
+.navbar-default .navbar-nav li a {
+    color: #777;
+    font-size: 16px;
+    letter-spacing: 1px;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    padding-right: 22px;
+    padding-left: 22px;
+}
+
+/* nav안의 직계 li들의 a값에 커서 올렸을 때 */
+.navbar-default .navbar-nav > li a:hover {
+    color: #333 !important;
+}
+/* nav 직계 li 직계 a 값에 커서 올렸을 때 & 클릭 했을 때*/
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #777;
+    background-color: transparent;
+}
+/* nav 안의 li 안의 a 값에 커서 올렸을 때 & 동작중인 a값에 커서 올렸을 때*/
+.navbar-default .navbar-nav li a:hover,
+ .navbar-default .navbar-nav .active > a {
+    color: #333;
+  }
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #333;
+    background-color: transparent;
+}
+
+/* dropdown menu */
+
+.navbar-default .navbar-nav li ul li { display : none ;}
+.navbar-default .navbar-nav > .active li ul li { display : none ;}
+
+.navbar-default .navbar-nav li > a:after { content : ' +' ; }
+.navbar-default .navbar-nav li > a:only-child:after { content : '' ; }
+
+.navbar-default .navbar-nav li:hover ul {
+    position : absolute ;
+    left : 0;
+    display : block ;
+}
+
+.navbar-default .navbar-nav li:hover ul li {
+    display : block ;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav li:hover ul li a {
+    color: #777;
+}
+
+.navbar-default .navbar-nav li:hover ul li a:hover {
+    color: #333 ;
+    background-color: transparent;
+}
+
+
+.navbar-default .navbar-toggle {
+     border: none;
+     padding-top: 10px;
+  }
+
+.navbar-default .navbar-toggle .icon-bar {
+    background: #bdc3c7;
+    border-color: transparent;
+  }
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: transparent;
+}
+
+
+/*---------------------------------------
+    Home section              
+-----------------------------------------*/
+
+#home {
+    background-size: cover;
+    background-position: center center;
+    display: -webkit-box;
+    display: -webkit-flex;
+     display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+     align-items: center;
+    position: relative;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+#home hr {
+  width: 82px;
+  margin-top: 32px;
+}
+
+
+
+/*---------------------------------------
+   About section              
+-----------------------------------------*/
+
+#about .text-center {
+  padding-bottom: 42px;
+}
+
+#about .col-md-8 {
+  padding-left: 0px;
+}
+
+#about .col-md-8 img {
+  padding-right: 22px;
+  padding-bottom: 22px;
+}
+
+#about hr {
+  width: 100px;
+  margin-top: 42px;
+  margin-bottom: 42px;
+}
+
+#about ul {
+  padding-left: 22px;
+}
+
+#about ul li {
+  color: #777;
+  font-size: 16px;
+  font-weight: 400;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+
+
+/*---------------------------------------
+   Portfolio section              
+-----------------------------------------*/
+
+#portfolio small {
+  color: #f0f0f0;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#portfolio .portfolio-thumb {
+  position: relative;
+  padding: 0;
+  margin-top: 32px;
+}
+
+#portfolio .portfolio-thumb .portfolio-overlay {
+  position: absolute;
+  background: #222;
+  color: #ffffff;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  vertical-align: top;
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+#portfolio .portfolio-item {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    -webkit-transform:translate(-50%,-50%);
+      -ms-transform:translate(-50%,-50%);
+          transform:translate(-50%,-50%);
+}
+
+#portfolio .portfolio-thumb:hover .portfolio-overlay {
+  opacity: 0.9;
+}
+
+#portfolio .text-center {
+  padding-top: 62px;
+}
+
+#map {
+    height: 400px;
+    width : 400px;
+}
+
+/*---------------------------------------
+   Single Project section              
+-----------------------------------------*/
+
+#single-project {
+  text-align: center;
+}
+
+#single-project .col-md-12,
+#single-project .col-md-6,
+#single-project .col-md-4 {
+  padding-left: 0px;
+  padding-bottom: 22px;
+}
+
+#single-project .col-md-12 {
+  padding-top: 42px;
+}
+
+#single-project .text-center strong {
+  display: block;
+  padding-top: 12px;
+}
+
+#single-project a {
+  color: #555;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding-left: 14px;
+}
+
+
+/*---------------------------------------
+   Contact section              
+-----------------------------------------*/
+/* 
+*{
+    margin: 0px;
+    padding: 20px;
+  } */
+  .container{
+    width: 1000px;
+    margin: 0 auto;
+  }
+  .container div{
+    text-align: center;
+    display: table;
+    padding: 10px;
+  }
+  .container div span{
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .middle{
+    margin-top: 20px;
+    width: 1000px;
+    height: 800px;
+    position: relative;
+  }
+  .middle-left{
+    position: absolute;
+    top: 0px;
+    width: 500px;
+    height: 800px;
+
+  }
+  .middle-right{
+    position: absolute;
+    top: 0px;
+    left: 520px;
+    width: 500px;
+    height: 800px;
+  }
+  .middle-right-1{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    outline: 2px solid rgb(236, 236, 236);
+    width: 480px;
+    height: 700px;
+  }
+  .middle-right-2{
+    /* padding: 20px; */
+    padding-top: 30px;
+    padding-bottom: 30px;
+    outline: 2px solid rgb(236, 236, 236);
+    margin-top: 20px;
+    width: 480px;
+    height: 80px;
+  }
+
+  .bottom{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 1000px;
+    height: 100px;
+    color: #fff;
+  }
+
+#register {
+display: inline-block;
+text-align: center;
+}
+
+  .form-control {
+    border: 1px solid #f0f0f0;
+    box-shadow: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: all 0.4s ease-in-out;
+
+  }
+
+  .form-control:hover {
+    border-color: #777;
+  }
+
+input[type="submit"] {
+    background: rgb(80, 148, 80);
+    border-radius: 100px;
+    border: none;
+    color: #ffffff;
+    font-weight: 400;
+    transition: all 0.4s ease-in-out;
+    
+}
+
+input[type="submit"]:hover {
+    background: rgb(80, 148, 80);
+}
