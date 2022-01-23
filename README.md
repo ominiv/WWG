@@ -1,6 +1,6 @@
 # [WWG] 그린슈머를 위한 추천서비스 
 
-<img src="README.assets/WWG.gif"  width=300 ailgn=center>   *edit by ominiv*
+<img src="README.assets/WWG.gif"  width=300 align=center>   *edit by ominiv*
 
 본 프로젝트는 친환경 소비 인식제고를 위해 진행되었습니다.<br>오로지 비영리 목적인 학습용도로 진행된 점 참고 부탁 드립니다 :)
 
@@ -33,7 +33,7 @@
 4. 웹 구현<br>Django 프레임워크를 이용
     
 5. 수행결과<br>
-    <img src="README.assets/WWG_MainPage.gif" ailgn=center width=400>
+    <img src="README.assets/WWG_MainPage.gif" width=700 align='center' >
 ---
 
 ### 결과
