@@ -1,6 +1,6 @@
 # [WWG] 그린슈머를 위한 추천서비스 
 
-<img src="README.assets/WWG.gif"  width=300 align=center>   
+<img src="README.assets/WWG.gif"  width=300 align='center'>   
 
 *edit by ominiv*
 
